@@ -1,0 +1,135 @@
+[
+  {
+    "id": "prop1",
+    "type": "House",
+    "price": 750000,
+    "bedrooms": 3,
+    "dateAdded": "2025-10-12",
+    "postcode": "BR5",
+    "location": "Petts Wood Road, Petts Wood, Orpington BR5",
+    "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station.",
+    "longDescription": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom.",
+    "images": [
+      "images/prop1pic1small.jpg",
+      "https://placehold.co/600x400?text=Petts+Wood+Living",
+      "https://placehold.co/600x400?text=Petts+Wood+Kitchen",
+      "https://placehold.co/600x400?text=Petts+Wood+Bed1",
+      "https://placehold.co/600x400?text=Petts+Wood+Bed2",
+      "https://placehold.co/600x400?text=Petts+Wood+Garden"
+    ]
+  },
+  {
+    "id": "prop2",
+    "type": "Flat",
+    "price": 399995,
+    "bedrooms": 2,
+    "dateAdded": "2025-09-14",
+    "postcode": "BR6",
+    "location": "Crofton Road Orpington BR6",
+    "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat.",
+    "longDescription": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden.",
+    "images": [
+      "images/prop2pic1small.jpg",
+      "https://placehold.co/600x400?text=Orpington+Living",
+      "https://placehold.co/600x400?text=Orpington+Kitchen",
+      "https://placehold.co/600x400?text=Orpington+Bed1",
+      "https://placehold.co/600x400?text=Orpington+Bath",
+      "https://placehold.co/600x400?text=Orpington+Garden"
+    ]
+  },
+  {
+    "id": "prop3",
+    "type": "House",
+    "price": 450000,
+    "bedrooms": 4,
+    "dateAdded": "2025-11-01",
+    "postcode": "SE15",
+    "location": "Peckham, London",
+    "description": "Charming 4-bed terraced house in a quiet cul-de-sac.",
+    "longDescription": "Features a cozy living room, spacious kitchen-diner, and a private rear garden. Recently redecorated throughout. Perfect for a growing family needing quick access to the city center.",
+    "images": [
+      "https://placehold.co/600x400?text=Peckham+Main",
+      "https://placehold.co/600x400?text=Peckham+Living",
+      "https://placehold.co/600x400?text=Peckham+Kitchen",
+      "https://placehold.co/600x400?text=Peckham+Bed1",
+      "https://placehold.co/600x400?text=Peckham+Bed2",
+      "https://placehold.co/600x400?text=Peckham+Garden"
+    ]
+  },
+  {
+    "id": "prop4",
+    "type": "Flat",
+    "price": 550000,
+    "bedrooms": 3,
+    "dateAdded": "2025-08-20",
+    "postcode": "E1",
+    "location": "Shoreditch, London",
+    "description": "Stylish warehouse conversion with exposed brickwork.",
+    "longDescription": "This trendy apartment offers high ceilings, large industrial windows, and a rooftop terrace access. Located in the heart of the creative district with easy access to nightlife and tech hubs.",
+    "images": [
+      "https://placehold.co/600x400?text=Shoreditch+Main",
+      "https://placehold.co/600x400?text=Shoreditch+Living",
+      "https://placehold.co/600x400?text=Shoreditch+Kitchen",
+      "https://placehold.co/600x400?text=Shoreditch+Bed1",
+      "https://placehold.co/600x400?text=Shoreditch+Bath",
+      "https://placehold.co/600x400?text=Shoreditch+Roof"
+    ]
+  },
+  {
+    "id": "prop5",
+    "type": "House",
+    "price": 850000,
+    "bedrooms": 5,
+    "dateAdded": "2025-12-01",
+    "postcode": "SW19",
+    "location": "Wimbledon, London",
+    "description": "Luxury 5-bedroom detached home near the park.",
+    "longDescription": "Includes a double garage, en-suite to master bedroom, and a large landscaped garden. Ideal for prestige living. The property has recently undergone a full refurbishment.",
+    "images": [
+      "https://placehold.co/600x400?text=Wimbledon+Main",
+      "https://placehold.co/600x400?text=Wimbledon+Living",
+      "https://placehold.co/600x400?text=Wimbledon+Kitchen",
+      "https://placehold.co/600x400?text=Wimbledon+Bed1",
+      "https://placehold.co/600x400?text=Wimbledon+Pool",
+      "https://placehold.co/600x400?text=Wimbledon+Garden"
+    ]
+  },
+  {
+    "id": "prop6",
+    "type": "Flat",
+    "price": 250000,
+    "bedrooms": 1,
+    "dateAdded": "2025-06-10",
+    "postcode": "CR0",
+    "location": "Croydon, London",
+    "description": "Compact and affordable 1-bedroom starter home.",
+    "longDescription": "Perfect for first-time buyers. Includes a modern kitchenette and access to a shared gym facility. Very low maintenance costs and close to the tram link.",
+    "images": [
+      "https://placehold.co/600x400?text=Croydon+Main",
+      "https://placehold.co/600x400?text=Croydon+Living",
+      "https://placehold.co/600x400?text=Croydon+Kitchen",
+      "https://placehold.co/600x400?text=Croydon+Bed1",
+      "https://placehold.co/600x400?text=Croydon+Bath",
+      "https://placehold.co/600x400?text=Croydon+View"
+    ]
+  },
+  {
+    "id": "prop7",
+    "type": "House",
+    "price": 600000,
+    "bedrooms": 3,
+    "dateAdded": "2025-10-30",
+    "postcode": "NW1",
+    "location": "Camden, London",
+    "description": "Renovated cottage with easy access to markets.",
+    "longDescription": "A mix of old charm and new amenities. Features a smart-home heating system and wooden flooring. Walking distance to the famous Camden market and canal.",
+    "images": [
+      "https://placehold.co/600x400?text=Camden+Main",
+      "https://placehold.co/600x400?text=Camden+Living",
+      "https://placehold.co/600x400?text=Camden+Kitchen",
+      "https://placehold.co/600x400?text=Camden+Bed1",
+      "https://placehold.co/600x400?text=Camden+Bed2",
+      "https://placehold.co/600x400?text=Camden+Exterior"
+    ]
+  }
+]
