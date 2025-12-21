@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PropertyCard from './components/PropertyCard';
+import PropertyDetails from './components/PropertyDetails';
 import SearchForm from './components/SearchForm'; // Import the new form
 import propertiesData from './properties.json';
 
@@ -73,7 +74,7 @@ function App() {
             </div>
           } />
 
-          <Route path="/property/:id" element={<h1>Property Details Page</h1>} />
+          <Route path="/property/:id" element={<PropertyDetails />} />
         </Routes>
       </div>
     </BrowserRouter>
