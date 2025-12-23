@@ -10,13 +10,15 @@
     "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station.",
     "longDescription": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom.",
     "images": [
-      "https://placehold.co/600x400?text=Petts+Wood+Main",
-      "https://placehold.co/600x400?text=Petts+Wood+Living",
-      "https://placehold.co/600x400?text=Petts+Wood+Kitchen",
-      "https://placehold.co/600x400?text=Petts+Wood+Bed1",
-      "https://placehold.co/600x400?text=Petts+Wood+Bed2",
-      "https://placehold.co/600x400?text=Petts+Wood+Garden"
-    ]
+    "/images/prop1/main.jpg",
+    "/images/prop1/kitchen.png",
+    "/images/prop1/living.png",
+    "/images/prop1/bed1.png",
+    "/images/prop1/bed2.png",
+    "/images/prop1/garden.png"
+    ],
+    "floorPlan": "/images/prop1/floorplan.png",  
+    "mapImage": "/images/prop1/map.png"
   },
   {
     "id": "prop2",

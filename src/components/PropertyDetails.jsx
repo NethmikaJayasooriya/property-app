@@ -86,26 +86,31 @@ function PropertyDetails() {
 
           {/* Tab Content */}
           <div style={{ minHeight: '200px' }}>
-            {activeTab === 'description' && (
+             {activeTab === 'description' && (
               <div>
                 <p><strong>Bedrooms:</strong> {property.bedrooms}</p>
-                <p><strong>Tenure:</strong> Freehold</p>
+                <p><strong>Tenure:</strong> {property.tenure}</p>
                 <p style={{ lineHeight: '1.6', color: '#555' }}>{property.longDescription}</p>
               </div>
             )}
             
             {activeTab === 'floorplan' && (
-              <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#eee', borderRadius: '8px' }}>
-                <p>Floor Plan Image Placeholder</p>
-                {/* Eventually you can add a real floorplan image here */}
-                <img src="https://placehold.co/400x300?text=Floor+Plan" alt="Floor Plan" style={{ maxWidth: '100%' }} />
+              <div style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #ddd' }}>
+                {property.floorPlan ? (
+                  <img src={property.floorPlan} alt="Floor Plan" style={{ maxWidth: '100%', height: 'auto' }} />
+                ) : (
+                  <img src="https://placehold.co/600x400?text=No+Floor+Plan+Available" alt="Placeholder" style={{ maxWidth: '100%' }} />
+                )}
               </div>
             )}
 
             {activeTab === 'map' && (
-              <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#eee', borderRadius: '8px' }}>
-                <p>Google Map Placeholder</p>
-                 <img src="https://placehold.co/400x300?text=Map+View" alt="Map" style={{ maxWidth: '100%' }} />
+              <div style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #ddd' }}>
+                 {property.mapImage ? (
+                  <img src={property.mapImage} alt="Location Map" style={{ maxWidth: '100%', height: 'auto' }} />
+                 ) : (
+                  <img src="https://placehold.co/600x400?text=Map+Not+Available" alt="Placeholder" style={{ maxWidth: '100%' }} />
+                 )}
               </div>
             )}
           </div>
