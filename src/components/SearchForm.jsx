@@ -15,8 +15,9 @@ function SearchForm({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ backgroundColor: 'white', padding: '20px', borderRadius: '8px', marginBottom: '30px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', alignItems: 'center' }}>
+    <form className="search-form-container" onSubmit={handleSubmit}>
+
+      <div className="search-inputs">
         
         {/* Type Select */}
         <select name="type" style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }}>
@@ -36,8 +37,8 @@ function SearchForm({ onSearch }) {
         {/* Postcode */}
         <input type="text" name="postcode" placeholder="Postcode (e.g. NW1)" style={{ padding: '10px', width: '150px', borderRadius: '4px', border: '1px solid #ccc' }} />
 
-        {/* Date Filter */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+        {/* Date Filter - Added Class Here */}
+        <div className="date-wrapper">
             <span style={{ fontSize: '0.9rem', color: '#666' }}>Added after:</span>
             <input type="date" name="dateAdded" style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} />
         </div>

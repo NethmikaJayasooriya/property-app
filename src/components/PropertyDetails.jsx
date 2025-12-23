@@ -14,7 +14,12 @@ function PropertyDetails() {
 
   // Safety check: If ID doesn't exist
   if (!property) {
-    return <div style={{ padding: '20px' }}><h2>Property not found!</h2><Link to="/">Back to Home</Link></div>;
+    return (
+      <div style={{ padding: '20px' }}>
+        <h2>Property not found!</h2>
+        <Link to="/">Back to Home</Link>
+      </div>
+    );
   }
 
   return (
@@ -25,7 +30,11 @@ function PropertyDetails() {
         &larr; Back to Search
       </Link>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+      {/* RESPONSIVE FIX: 
+         We use the CSS class "details-layout" defined in App.css 
+         instead of inline grid styles. This allows it to stack on mobile.
+      */}
+      <div className="details-layout">
         
         {/* LEFT COLUMN: Image Gallery */}
         <div>
@@ -89,7 +98,8 @@ function PropertyDetails() {
              {activeTab === 'description' && (
               <div>
                 <p><strong>Bedrooms:</strong> {property.bedrooms}</p>
-                <p><strong>Tenure:</strong> {property.tenure}</p>
+                {/* Note: Tenure wasn't in your JSON but is often required, handling gracefully if missing */}
+                <p><strong>Tenure:</strong> {property.tenure || 'Freehold'}</p> 
                 <p style={{ lineHeight: '1.6', color: '#555' }}>{property.longDescription}</p>
               </div>
             )}

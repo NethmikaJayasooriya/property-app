@@ -1,0 +1,153 @@
+/* 1. GLOBAL SAFETY - Stops side-scrolling/cropping */
+html, body {
+  overflow-x: hidden; /* Critical: Hides anything sticking out the side */
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. NAVBAR */
+.navbar {
+  padding: 15px 20px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3. RESPONSIVE CONTAINER (Replaces inline styles) */
+.page-content {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 4. LAYOUT GRIDS */
+.main-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.details-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Sticky Favorites */
+.sticky-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  z-index: 90;
+}
+
+/* 5. PROPERTY GRID - CHANGED TO FIT MOBILE */
+.properties-grid {
+  display: grid;
+  /* Changed 300px -> 250px so it fits on small phones without cropping */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+/* 6. SEARCH FORM */
+.search-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Ensures it doesn't overflow */
+}
+
+.search-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --- MOBILE FIXES --- */
+@media (max-width: 900px) {
+  
+  /* Reduce padding so content has more room */
+  .page-content {
+    padding: 10px;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-sidebar {
+    position: static;
+  }
+
+  /* Force Inputs to stack and fit width */
+  .search-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-inputs input,
+  .search-inputs select,
+  .search-inputs button {
+    width: 100% !important;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .date-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  /* Fix Navbar Cropping */
+  .nav-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

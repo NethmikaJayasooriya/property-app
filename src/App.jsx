@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import FavoritesList from './components/FavoritesList'; // Import the new component
+import './App.css';
+import FavoritesList from './components/FavoritesList';
 import PropertyCard from './components/PropertyCard';
 import PropertyDetails from './components/PropertyDetails';
 import SearchForm from './components/SearchForm';
@@ -8,9 +9,8 @@ import propertiesData from './properties.json';
 
 function App() {
   const [properties, setProperties] = useState(propertiesData);
-  const [favorites, setFavorites] = useState([]); // State for Favorites
+  const [favorites, setFavorites] = useState([]); 
 
-  // SEARCH LOGIC
   const handleSearch = (criteria) => {
     const filtered = propertiesData.filter(property => {
       if (criteria.type !== 'any' && property.type !== criteria.type) return false;
@@ -25,13 +25,11 @@ function App() {
     setProperties(filtered);
   };
 
-  // FAVORITES LOGIC: Handle the Drop
   const handleDrop = (e) => {
     e.preventDefault();
     const propertyId = e.dataTransfer.getData("propertyId");
     const propertyToAdd = propertiesData.find(p => p.id === propertyId);
     
-    // Prevent duplicates
     if (propertyToAdd && !favorites.find(fav => fav.id === propertyToAdd.id)) {
       setFavorites([...favorites, propertyToAdd]);
     }
@@ -43,10 +41,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="app-container" style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+      <div className="app-container">
         
-        <nav style={{ padding: '20px', backgroundColor: '#333', color: 'white', marginBottom: '30px' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <nav className="navbar">
+          <div className="nav-content">
             <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Estate Agent App</h1>
             <button onClick={() => setProperties(propertiesData)} style={{ cursor: 'pointer', background: 'transparent', color: 'white', border: '1px solid white', padding: '5px 10px', borderRadius: '4px' }}>
                 Show All
@@ -56,17 +54,17 @@ function App() {
 
         <Routes>
           <Route path="/" element={
-            <div style={{ padding: '20px', maxWidth: '1400px', margin: '0 auto' }}>
+            /* FIX: Replaced inline style with 'page-content' class */
+            <div className="page-content">
               
               <SearchForm onSearch={handleSearch} />
 
-              {/* LAYOUT: Grid for Main Content vs Favorites Sidebar */}
-              <div style={{ display: 'grid', gridTemplateColumns: '3fr 1fr', gap: '20px' }}>
+              <div className="main-layout">
                 
                 {/* Left Side: Property Grid */}
                 <div>
                    <h2 style={{ marginTop: 0, color: '#333' }}>Found {properties.length} Properties</h2>
-                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                   <div className="properties-grid">
                     {properties.length > 0 ? (
                         properties.map(property => (
                             <PropertyCard key={property.id} property={property} />
@@ -77,10 +75,11 @@ function App() {
                   </div>
                 </div>
 
-                {/* Right Side: Favorites Drop Zone */}
+                {/* Right Side: Favorites */}
                 <div 
+                    className="sticky-sidebar"
                     onDrop={handleDrop} 
-                    onDragOver={(e) => e.preventDefault()} // Crucial for dropping
+                    onDragOver={(e) => e.preventDefault()} 
                 >
                     <FavoritesList 
                         favorites={favorites} 
