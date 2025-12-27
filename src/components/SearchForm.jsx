@@ -24,6 +24,8 @@ function SearchForm({ onSearch }) {
           <option value="any">Any Type</option>
           <option value="House">House</option>
           <option value="Flat">Flat</option>
+          <option value="Bungalow">Bungalow</option>
+          <option value="Studio">Studio</option>
         </select>
 
         {/* Price Inputs */}

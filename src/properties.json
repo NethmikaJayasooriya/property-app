@@ -31,13 +31,15 @@
     "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat.",
     "longDescription": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden.",
     "images": [
-      "https://placehold.co/600x400?text=Orpington+Main",
-      "https://placehold.co/600x400?text=Orpington+Living",
-      "https://placehold.co/600x400?text=Orpington+Kitchen",
-      "https://placehold.co/600x400?text=Orpington+Bed1",
-      "https://placehold.co/600x400?text=Orpington+Bath",
-      "https://placehold.co/600x400?text=Orpington+Garden"
-    ]
+    "/images/prop2/main.png",
+    "/images/prop2/kitchen.png",
+    "/images/prop2/living.png",
+    "/images/prop2/bedroom.png",
+    "/images/prop2/bathroom.png",
+    "/images/prop2/garden.png"
+    ],
+    "floorPlan": "/images/prop2/floorplan.png",  
+    "mapImage": "/images/prop2/map.png"
   },
   {
     "id": "prop3",
@@ -50,13 +52,15 @@
     "description": "Charming 4-bed terraced house in a quiet cul-de-sac.",
     "longDescription": "Features a cozy living room, spacious kitchen-diner, and a private rear garden. Recently redecorated throughout. Perfect for a growing family needing quick access to the city center.",
     "images": [
-      "https://placehold.co/600x400?text=Peckham+Main",
-      "https://placehold.co/600x400?text=Peckham+Living",
-      "https://placehold.co/600x400?text=Peckham+Kitchen",
-      "https://placehold.co/600x400?text=Peckham+Bed1",
-      "https://placehold.co/600x400?text=Peckham+Bed2",
-      "https://placehold.co/600x400?text=Peckham+Garden"
-    ]
+    "/images/prop3/main.jpg",
+    "/images/prop3/kitchen.jpg",
+    "/images/prop3/living.jpg",
+    "/images/prop3/bed1.jpg",
+    "/images/prop3/bed2.jpg",
+    "/images/prop3/garden.jpg"
+    ],
+    "floorPlan": "/images/prop3/floorplan.jpg",  
+    "mapImage": "/images/prop3/map.jpg"
   },
   {
     "id": "prop4",
@@ -69,13 +73,15 @@
     "description": "Stylish warehouse conversion with exposed brickwork.",
     "longDescription": "This trendy apartment offers high ceilings, large industrial windows, and a rooftop terrace access. Located in the heart of the creative district with easy access to nightlife and tech hubs.",
     "images": [
-      "https://placehold.co/600x400?text=Shoreditch+Main",
-      "https://placehold.co/600x400?text=Shoreditch+Living",
-      "https://placehold.co/600x400?text=Shoreditch+Kitchen",
-      "https://placehold.co/600x400?text=Shoreditch+Bed1",
-      "https://placehold.co/600x400?text=Shoreditch+Bath",
-      "https://placehold.co/600x400?text=Shoreditch+Roof"
-    ]
+    "/images/prop4/main.jpg",
+    "/images/prop4/kitchen.jpg",
+    "/images/prop4/living.jpg",
+    "/images/prop4/bed1.jpg",
+    "/images/prop4/bath.jpg",
+    "/images/prop4/roof.jpg"
+    ],
+    "floorPlan": "/images/prop4/floorplan.jpg",  
+    "mapImage": "/images/prop4/map.jpg"
   },
   {
     "id": "prop5",
@@ -88,50 +94,56 @@
     "description": "Luxury 5-bedroom detached home near the park.",
     "longDescription": "Includes a double garage, en-suite to master bedroom, and a large landscaped garden. Ideal for prestige living. The property has recently undergone a full refurbishment.",
     "images": [
-      "https://placehold.co/600x400?text=Wimbledon+Main",
-      "https://placehold.co/600x400?text=Wimbledon+Living",
-      "https://placehold.co/600x400?text=Wimbledon+Kitchen",
-      "https://placehold.co/600x400?text=Wimbledon+Bed1",
-      "https://placehold.co/600x400?text=Wimbledon+Pool",
-      "https://placehold.co/600x400?text=Wimbledon+Garden"
-    ]
+    "/images/prop5/main.jpg",
+    "/images/prop5/kitchen.jpg",
+    "/images/prop5/living.jpg",
+    "/images/prop5/bed1.jpg",
+    "/images/prop5/pool.jpg",
+    "/images/prop5/garden.jpg"
+    ],
+    "floorPlan": "/images/prop5/floorplan.jpg",  
+    "mapImage": "/images/prop5/map.jpg"
   },
-  {
+ {
     "id": "prop6",
-    "type": "Flat",
+    "type": "Studio", 
     "price": 250000,
     "bedrooms": 1,
     "dateAdded": "2025-06-10",
     "postcode": "CR0",
     "location": "Croydon, London",
-    "description": "Compact and affordable 1-bedroom starter home.",
+    "description": "Compact and affordable 1-bedroom studio apartment.",
     "longDescription": "Perfect for first-time buyers. Includes a modern kitchenette and access to a shared gym facility. Very low maintenance costs and close to the tram link.",
     "images": [
-      "https://placehold.co/600x400?text=Croydon+Main",
+      "https://placehold.co/600x400?text=Croydon+Studio+Main",
       "https://placehold.co/600x400?text=Croydon+Living",
       "https://placehold.co/600x400?text=Croydon+Kitchen",
       "https://placehold.co/600x400?text=Croydon+Bed1",
       "https://placehold.co/600x400?text=Croydon+Bath",
       "https://placehold.co/600x400?text=Croydon+View"
-    ]
+    ],
+    "floorPlan": "/images/prop6/floorplan.jpg",  
+    "mapImage": "/images/prop6/map.jpg"
   },
   {
     "id": "prop7",
-    "type": "House",
+    "type": "Bungalow",
     "price": 600000,
     "bedrooms": 3,
     "dateAdded": "2025-10-30",
     "postcode": "NW1",
     "location": "Camden, London",
-    "description": "Renovated cottage with easy access to markets.",
-    "longDescription": "A mix of old charm and new amenities. Features a smart-home heating system and wooden flooring. Walking distance to the famous Camden market and canal.",
+    "description": "Renovated detached bungalow with easy access to markets.",
+    "longDescription": "A rare find in London. A mix of old charm and new amenities. Features a smart-home heating system and wooden flooring. Walking distance to the famous Camden market and canal.",
     "images": [
-      "https://placehold.co/600x400?text=Camden+Main",
+      "https://placehold.co/600x400?text=Camden+Bungalow",
       "https://placehold.co/600x400?text=Camden+Living",
       "https://placehold.co/600x400?text=Camden+Kitchen",
       "https://placehold.co/600x400?text=Camden+Bed1",
       "https://placehold.co/600x400?text=Camden+Bed2",
       "https://placehold.co/600x400?text=Camden+Exterior"
-    ]
+    ],
+    "floorPlan": "/images/prop6/floorplan.jpg",  
+    "mapImage": "/images/prop6/map.jpg"
   }
 ]
