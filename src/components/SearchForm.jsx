@@ -25,7 +25,6 @@ function SearchForm({ onSearch }) {
           <option value="House">House</option>
           <option value="Flat">Flat</option>
           <option value="Bungalow">Bungalow</option>
-          <option value="Studio">Studio</option>
         </select>
 
         {/* Price Inputs */}
@@ -33,8 +32,8 @@ function SearchForm({ onSearch }) {
         <input type="number" name="maxPrice" placeholder="Max Price" style={{ padding: '10px', width: '100px', borderRadius: '4px', border: '1px solid #ccc' }} />
 
         {/* Bedroom Inputs */}
-        <input type="number" name="minBedrooms" placeholder="Min Beds" style={{ padding: '10px', width: '80px', borderRadius: '4px', border: '1px solid #ccc' }} />
-        <input type="number" name="maxBedrooms" placeholder="Max Beds" style={{ padding: '10px', width: '80px', borderRadius: '4px', border: '1px solid #ccc' }} />
+        <input type="number" name="minBedrooms" placeholder="Min Beds" style={{ padding: '10px', width: '100px', borderRadius: '4px', border: '1px solid #ccc' }} />
+        <input type="number" name="maxBedrooms" placeholder="Max Beds" style={{ padding: '10px', width: '100px', borderRadius: '4px', border: '1px solid #ccc' }} />
 
         {/* Postcode */}
         <input type="text" name="postcode" placeholder="Postcode (e.g. NW1)" style={{ padding: '10px', width: '150px', borderRadius: '4px', border: '1px solid #ccc' }} />

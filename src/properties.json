@@ -52,7 +52,7 @@
     "description": "Charming 4-bed terraced house in a quiet cul-de-sac.",
     "longDescription": "Features a cozy living room, spacious kitchen-diner, and a private rear garden. Recently redecorated throughout. Perfect for a growing family needing quick access to the city center.",
     "images": [
-    "/images/prop3/main.jpg",
+    "/images/prop3/main.png",
     "/images/prop3/kitchen.jpg",
     "/images/prop3/living.jpg",
     "/images/prop3/bed1.jpg",
@@ -106,23 +106,23 @@
   },
  {
     "id": "prop6",
-    "type": "Studio", 
-    "price": 250000,
-    "bedrooms": 1,
-    "dateAdded": "2025-06-10",
+    "type": "Flat",
+    "price": 325000,
+    "bedrooms": 2,
+    "dateAdded": "2025-06-15",
     "postcode": "CR0",
-    "location": "Croydon, London",
-    "description": "Compact and affordable 1-bedroom studio apartment.",
-    "longDescription": "Perfect for first-time buyers. Includes a modern kitchenette and access to a shared gym facility. Very low maintenance costs and close to the tram link.",
+    "location": "East Croydon, London",
+    "description": "Modern 2-bedroom apartment with balcony near station.",
+    "longDescription": "A spacious and bright flat featuring an open-plan living area, two double bedrooms, and a private balcony. Ideally located for commuters with fast links to Central London and Gatwick.",
     "images": [
-      "https://placehold.co/600x400?text=Croydon+Studio+Main",
-      "https://placehold.co/600x400?text=Croydon+Living",
-      "https://placehold.co/600x400?text=Croydon+Kitchen",
-      "https://placehold.co/600x400?text=Croydon+Bed1",
-      "https://placehold.co/600x400?text=Croydon+Bath",
-      "https://placehold.co/600x400?text=Croydon+View"
+      "/images/prop6/main.jpg",
+      "/images/prop6/living.jpg",
+      "/images/prop6/kitchen.jpg",
+      "/images/prop6/bed1.jpg",
+      "/images/prop6/bed2.jpg",
+      "/images/prop6/balcony.jpg"
     ],
-    "floorPlan": "/images/prop6/floorplan.jpg",  
+    "floorPlan": "/images/prop6/floorplan.jpg",
     "mapImage": "/images/prop6/map.jpg"
   },
   {
@@ -136,14 +136,14 @@
     "description": "Renovated detached bungalow with easy access to markets.",
     "longDescription": "A rare find in London. A mix of old charm and new amenities. Features a smart-home heating system and wooden flooring. Walking distance to the famous Camden market and canal.",
     "images": [
-      "https://placehold.co/600x400?text=Camden+Bungalow",
-      "https://placehold.co/600x400?text=Camden+Living",
-      "https://placehold.co/600x400?text=Camden+Kitchen",
-      "https://placehold.co/600x400?text=Camden+Bed1",
-      "https://placehold.co/600x400?text=Camden+Bed2",
-      "https://placehold.co/600x400?text=Camden+Exterior"
+      "/images/prop7/main.jpg",
+      "/images/prop7/living.jpg",
+      "/images/prop7/kitchen.jpg",
+      "/images/prop7/bed1.jpg",
+      "/images/prop7/bed2.jpg",
+      "/images/prop7/garden.jpg"
     ],
-    "floorPlan": "/images/prop6/floorplan.jpg",  
-    "mapImage": "/images/prop6/map.jpg"
+    "floorPlan": "/images/prop7/floorplan.jpg",  
+    "mapImage": "/images/prop7/map.jpg"
   }
 ]

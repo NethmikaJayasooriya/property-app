@@ -38,7 +38,7 @@ function App() {
   const removeFavorite = (id) => {
     setFavorites(favorites.filter(fav => fav.id !== id));
   };
-//browserrouter
+
   return (
     <BrowserRouter>
       <div className="app-container">
