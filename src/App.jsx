@@ -5,6 +5,7 @@ import FavoritesList from './components/FavoritesList';
 import Footer from './components/Footer';
 import PropertyCard from './components/PropertyCard';
 import PropertyDetails from './components/PropertyDetails';
+import ScrollToTop from './components/ScrollToTop';
 import SearchForm from './components/SearchForm';
 import propertiesData from './properties.json';
 
@@ -87,6 +88,7 @@ function MainApp() {
         onDrop={handleGlobalDrop} 
         onDragOver={(e) => e.preventDefault()}
     >
+      <ScrollToTop />
       <nav className="navbar">
         <div className="navbar__content">
           <h1 className="navbar__title">Estate Agent App</h1>
