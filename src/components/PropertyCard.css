@@ -1,0 +1,102 @@
+/* PropertyCard.css */
+.property-card {
+  background-color: white;
+  border-top: 4px solid #2563eb;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.property-card__fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.property-card__fav-btn:hover {
+  background-color: #f8fafc;
+}
+
+.property-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-card__content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.property-card__title {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: #1e293b;
+}
+
+.property-card__price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin: 5px 0;
+}
+
+.property-card__location {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.property-card__desc {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.property-card__view-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.property-card__view-btn:hover {
+  background-color: #1d4ed8;
+}

@@ -1,0 +1,79 @@
+/* Footer.css */
+.footer {
+  background-color: #0f172a;
+  color: #cbd5e1;
+  padding: 40px 20px;
+  margin-top: auto;
+}
+
+.footer__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.footer__section {
+  text-align: left;
+}
+
+.footer__brand-title {
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: #fff;
+  margin-top: 0;
+}
+
+.footer__subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer__heading {
+  color: #fff;
+  margin-top: 0;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.footer__list-item {
+  margin-bottom: 8px;
+}
+
+.footer__link {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__link:hover {
+  color: #fff;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer__social-icon {
+  color: white;
+  font-size: 1.5rem;
+  transition: opacity 0.2s;
+}
+
+.footer__social-icon:hover {
+  opacity: 0.8;
+}
+
+.footer__copyright {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 15px;
+}

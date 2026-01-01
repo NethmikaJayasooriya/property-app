@@ -58,7 +58,6 @@ describe('Estate Agent App Tests', () => {
     render(<App />);
     
     // 1. Verify specific card titles are visible
-    // We search for "House - 3 Bed" so we don't accidentally find the dropdown menu "House"
     expect(screen.getByText(/House - 3 Bed/i)).toBeInTheDocument();
     expect(screen.getByText(/Flat - 2 Bed/i)).toBeInTheDocument();
 

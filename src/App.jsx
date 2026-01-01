@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'; // IMPORT useNavigate
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import FavoritesList from './components/FavoritesList';
 import Footer from './components/Footer';
@@ -8,13 +8,10 @@ import PropertyDetails from './components/PropertyDetails';
 import SearchForm from './components/SearchForm';
 import propertiesData from './properties.json';
 
-// 1. Rename your old "App" function to "MainApp" (or any name)
-// This contains all your logic, state, and UI
 function MainApp() {
   const [properties, setProperties] = useState(propertiesData);
   const [favorites, setFavorites] = useState([]); 
   
-  // NEW: Hook for navigation
   const navigate = useNavigate();
 
   const handleSearch = (criteria) => {
@@ -25,11 +22,15 @@ function MainApp() {
       if (criteria.minBedrooms && property.bedrooms < Number(criteria.minBedrooms)) return false;
       if (criteria.maxBedrooms && property.bedrooms > Number(criteria.maxBedrooms)) return false;
       if (criteria.postcode && !property.postcode.toLowerCase().includes(criteria.postcode.toLowerCase())) return false;
-      if (criteria.dateAdded && new Date(property.dateAdded) < new Date(criteria.dateAdded)) return false;
+      
+      if (criteria.dateAdded) {
+        const propDate = new Date(property.dateAdded);
+        const searchDate = new Date(criteria.dateAdded);
+        if (propDate < searchDate) return false;
+      }
       return true;
     });
     setProperties(filtered);
-    // Optional: Navigate to home if they search while on a details page
     navigate('/'); 
   };
 
@@ -43,42 +44,53 @@ function MainApp() {
     setFavorites(favorites.filter(fav => fav.id !== id));
   };
 
-  const handleDrop = (e) => {
+  const handleShowAll = () => {
+    setProperties(propertiesData); 
+    navigate('/');                 
+  };
+
+  //HANDLE DROPS ON THE SIDEBAR (Adding)
+  const handleSidebarDrop = (e) => {
     e.preventDefault();
+    e.stopPropagation(); //Stops the "Global Remove" from triggering
+    
     const propertyId = e.dataTransfer.getData("propertyId");
+    const fromFavorites = e.dataTransfer.getData("fromFavorites");
+
+    // If dragging FROM favorites TO favorites, do nothing (ignore)
+    if (fromFavorites) return;
+
+    //find the property and add it
     const propertyToAdd = propertiesData.find(p => p.id === propertyId);
     if (propertyToAdd) {
       addToFavorites(propertyToAdd);
     }
   };
 
-  // NEW: Handle Show All Button
-  const handleShowAll = () => {
-    setProperties(propertiesData); // 1. Reset Data
-    navigate('/');                 // 2. Go to Home Page
+  //HANDLE DROPS ANYWHERE ELSE (Removing)
+  const handleGlobalDrop = (e) => {
+    e.preventDefault();
+    
+    const propertyId = e.dataTransfer.getData("propertyId");
+    const fromFavorites = e.dataTransfer.getData("fromFavorites");
+
+    // Only remove if it CAME FROM the favorites list
+    if (fromFavorites && propertyId) {
+        removeFavorite(propertyId);
+    }
   };
 
   return (
-    <div className="app-container">
-        
-      {/* Navbar */}
+    // Attach Global Drop Handler to the main container
+    <div 
+        className="app-container" 
+        onDrop={handleGlobalDrop} 
+        onDragOver={(e) => e.preventDefault()}
+    >
       <nav className="navbar">
-        <div className="nav-content">
-          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 'bold' }}>Estate Agent App</h1>
-          
-          {/* UPDATED: Button now calls handleShowAll */}
-          <button 
-              onClick={handleShowAll} 
-              style={{ 
-                cursor: 'pointer', 
-                background: 'transparent', 
-                color: 'white', 
-                border: '1px solid rgba(255,255,255,0.5)', 
-                padding: '6px 15px', 
-                borderRadius: '4px',
-                transition: 'all 0.2s'
-              }}
-          >
+        <div className="navbar__content">
+          <h1 className="navbar__title">Estate Agent App</h1>
+          <button onClick={handleShowAll} className="navbar__btn">
               Show All
           </button>
         </div>
@@ -96,7 +108,7 @@ function MainApp() {
                 
                 {/* Left: Property Grid */}
                 <div>
-                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', borderBottom: '1px solid #e2e8f0', paddingBottom: '10px' }}>
+                   <div className="properties-header">
                       <h2 style={{ margin: 0, color: '#0f172a' }}>Properties For Sale</h2>
                       <span style={{ color: '#64748b' }}>Found {properties.length}</span>
                    </div>
@@ -122,7 +134,7 @@ function MainApp() {
                 {/* Right: Sticky Favorites */}
                 <div 
                     className="sticky-sidebar"
-                    onDrop={handleDrop} 
+                    onDrop={handleSidebarDrop} // Use the new Sidebar handler
                     onDragOver={(e) => e.preventDefault()} 
                 >
                     <FavoritesList 
@@ -136,17 +148,22 @@ function MainApp() {
           </>
         } />
 
-        <Route path="/property/:id" element={<PropertyDetails />} />
+        <Route 
+          path="/property/:id" 
+          element={
+            <PropertyDetails 
+              onFavorite={addToFavorites} 
+              favorites={favorites} 
+            />
+          } 
+        />
       </Routes>
 
       <Footer />
-      
     </div>
   );
 }
 
-// 2. Creates the actual App component that wraps MainApp in BrowserRouter
-// This is required for 'useNavigate' to work inside MainApp
 function App() {
   return (
     <BrowserRouter>

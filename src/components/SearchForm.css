@@ -1,0 +1,92 @@
+/* SearchForm.css */
+.search-form {
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.search-form__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.search-form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form__label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.search-form__select,
+.search-form__input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.search-form__select {
+  min-width: 120px;
+}
+
+.search-form__input--short {
+  width: 100px;
+}
+
+.search-form__input--tiny {
+  width: 80px;
+}
+
+.search-form__range-group {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.search-form__submit {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: auto;
+  height: 40px;
+  transition: background-color 0.2s;
+}
+
+.search-form__submit:hover {
+  background-color: #218838;
+}
+
+.react-datepicker-popper {
+  z-index: 100 !important;
+}
+
+@media (max-width: 900px) {
+  .search-form__inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-form__select,
+  .search-form__input,
+  .search-form__input--short,
+  .search-form__input--tiny,
+  .search-form__submit {
+    width: 100%;
+  }
+}

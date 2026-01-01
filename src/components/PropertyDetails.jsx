@@ -1,135 +1,131 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import propertiesData from '../properties.json';
+import './PropertyDetails.css';
 
-function PropertyDetails() {
-  const { id } = useParams(); // 1. Get the ID from the URL
-  const property = propertiesData.find(p => p.id === id); // 2. Find the house
+// Accept 'favorites' as a prop
+function PropertyDetails({ onFavorite, favorites = [] }) {
+  const { id } = useParams();
+  const property = propertiesData.find(p => p.id === id);
   
-  // State for the Image Gallery (default to first image)
-  const [mainImage, setMainImage] = useState(property ? property.images[0] : null);
-  
-  // State for the Tabs (default to description)
+  const [mainImage, setMainImage] = useState(property?.images?.[0] || null);
   const [activeTab, setActiveTab] = useState('description');
 
-  // Safety check: If ID doesn't exist
+  // Check if already saved
+  const isSaved = favorites.some(fav => fav.id === property?.id);
+
   if (!property) {
     return (
-      <div style={{ padding: '20px' }}>
+      <div className="details-container">
         <h2>Property not found!</h2>
-        <Link to="/">Back to Home</Link>
+        <Link to="/" className="details-back-link">Back to Home</Link>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
+    <div className="details-container">
       
-      {/* Back Button */}
-      <Link to="/" style={{ textDecoration: 'none', color: '#555', display: 'inline-block', marginBottom: '20px' }}>
+      <Link to="/" className="details-back-link">
         &larr; Back to Search
       </Link>
 
-      {/* RESPONSIVE FIX: 
-         We use the CSS class "details-layout" defined in App.css 
-         instead of inline grid styles. This allows it to stack on mobile.
-      */}
-      <div className="details-layout">
+      <div className="details-grid">
         
-        {/* LEFT COLUMN: Image Gallery */}
-        <div>
-          {/* Big Image */}
-          <img 
-            src={mainImage} 
-            alt={property.type} 
-            style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '8px', marginBottom: '10px' }} 
-          />
-          {/* Thumbnails */}
-          <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
-            {property.images.map((img, index) => (
+        {/* Gallery */}
+        <div className="gallery">
+          {mainImage ? (
+             <img src={mainImage} alt={property.type} className="gallery__main-img" />
+          ) : (
+             <div className="gallery__main-img" style={{background: '#eee', display: 'flex', alignItems:'center', justifyContent:'center'}}>No Image</div>
+          )}
+
+          <div className="gallery__thumbnails">
+            {property.images && property.images.map((img, index) => (
               <img 
                 key={index}
                 src={img} 
                 alt="thumbnail"
-                onClick={() => setMainImage(img)} // Click to swap image
-                style={{ 
-                  width: '80px', 
-                  height: '60px', 
-                  objectFit: 'cover', 
-                  cursor: 'pointer', 
-                  borderRadius: '4px',
-                  border: mainImage === img ? '2px solid #007bff' : '2px solid transparent'
-                }} 
+                onClick={() => setMainImage(img)}
+                className={`gallery__thumb ${mainImage === img ? 'gallery__thumb--active' : ''}`}
               />
             ))}
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Info & Tabs */}
-        <div>
-          <h1 style={{ marginTop: 0 }}>{property.type}</h1>
-          <h3 style={{ color: '#7f8c8d' }}>{property.location}</h3>
-          <h2 style={{ color: '#2c3e50', fontSize: '2rem' }}>£{property.price.toLocaleString()}</h2>
+        {/* Info */}
+        <div className="details-info">
+          <h1 className="details-info__title">{property.type}</h1>
+          <h3 className="details-info__location">{property.location}</h3>
+          <h2 className="details-info__price">£{property.price.toLocaleString()}</h2>
           
-          {/* Tab Buttons */}
-          <div style={{ display: 'flex', borderBottom: '1px solid #ccc', margin: '20px 0' }}>
+          <div className="tabs-header">
             <button 
               onClick={() => setActiveTab('description')}
-              style={{ padding: '10px 20px', background: 'none', border: 'none', borderBottom: activeTab === 'description' ? '3px solid #007bff' : 'none', cursor: 'pointer', fontWeight: 'bold' }}
+              className={`tab-btn ${activeTab === 'description' ? 'tab-btn--active' : ''}`}
             >
               Description
             </button>
             <button 
               onClick={() => setActiveTab('floorplan')}
-              style={{ padding: '10px 20px', background: 'none', border: 'none', borderBottom: activeTab === 'floorplan' ? '3px solid #007bff' : 'none', cursor: 'pointer', fontWeight: 'bold' }}
+              className={`tab-btn ${activeTab === 'floorplan' ? 'tab-btn--active' : ''}`}
             >
               Floor Plan
             </button>
             <button 
               onClick={() => setActiveTab('map')}
-              style={{ padding: '10px 20px', background: 'none', border: 'none', borderBottom: activeTab === 'map' ? '3px solid #007bff' : 'none', cursor: 'pointer', fontWeight: 'bold' }}
+              className={`tab-btn ${activeTab === 'map' ? 'tab-btn--active' : ''}`}
             >
               Google Map
             </button>
           </div>
 
-          {/* Tab Content */}
-          <div style={{ minHeight: '200px' }}>
+          <div className="tab-content">
              {activeTab === 'description' && (
               <div>
                 <p><strong>Bedrooms:</strong> {property.bedrooms}</p>
-                {/* Note: Tenure wasn't in your JSON but is often required, handling gracefully if missing */}
                 <p><strong>Tenure:</strong> {property.tenure || 'Freehold'}</p> 
-                <p style={{ lineHeight: '1.6', color: '#555' }}>{property.longDescription}</p>
+                <p style={{ lineHeight: '1.6', color: '#555' }}>{property.description}</p>
               </div>
             )}
             
             {activeTab === 'floorplan' && (
-              <div style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #ddd' }}>
+              <div className="tab-content__image-box">
                 {property.floorPlan ? (
-                  <img src={property.floorPlan} alt="Floor Plan" style={{ maxWidth: '100%', height: 'auto' }} />
+                  <img src={property.floorPlan} alt="Floor Plan" style={{ maxWidth: '100%' }} />
                 ) : (
-                  <img src="https://placehold.co/600x400?text=No+Floor+Plan+Available" alt="Placeholder" style={{ maxWidth: '100%' }} />
+                  <p>No Floor Plan Available</p>
                 )}
               </div>
             )}
 
             {activeTab === 'map' && (
-              <div style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', borderRadius: '8px', border: '1px solid #ddd' }}>
+              <div className="tab-content__image-box">
                  {property.mapImage ? (
-                  <img src={property.mapImage} alt="Location Map" style={{ maxWidth: '100%', height: 'auto' }} />
+                  <img src={property.mapImage} alt="Location Map" style={{ maxWidth: '100%' }} />
                  ) : (
-                  <img src="https://placehold.co/600x400?text=Map+Not+Available" alt="Placeholder" style={{ maxWidth: '100%' }} />
+                  <p>Map not available</p>
                  )}
               </div>
             )}
           </div>
 
-          <button style={{ marginTop: '20px', padding: '15px 30px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '5px', fontSize: '1.1rem', cursor: 'pointer' }}>
-            Book a Viewing
-          </button>
-        </div>
+          {/*Button Feedback*/}
+          <div className="details-actions">
+            <button 
+                onClick={() => onFavorite(property)} 
+                disabled={isSaved} // Disable if saved
+                className={`btn-secondary ${isSaved ? 'btn-saved' : ''}`} // Add class
+            >
+                {isSaved ? 'Saved ❤️' : 'Save to Favorites'} 
+            </button>
+            
+            <button className="btn-primary">
+                Book a Viewing
+            </button>
+          </div>
 
+        </div>
       </div>
     </div>
   );
