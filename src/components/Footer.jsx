@@ -28,7 +28,7 @@ function Footer() {
         <div className="footer__section">
             <h4 className="footer__heading">Connect</h4>
             <div className="footer__socials">
-                {/* Updated Icons: Facebook, Instagram, Mail */}
+                {/*Icons: Facebook, Instagram, Mail */}
                 <a href="#" className="footer__social-icon"><FaFacebook /></a>
                 <a href="#" className="footer__social-icon"><FaInstagram /></a>
                 <a href="#" className="footer__social-icon"><FaEnvelope /></a>

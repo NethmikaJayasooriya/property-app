@@ -1,8 +1,9 @@
-import { FaTimes } from 'react-icons/fa'; // Removed FaTrashAlt
+import { FaTimes } from 'react-icons/fa';
 import './FavoritesList.css';
 
 function FavoritesList({ favorites, onRemove, onClear }) {
   
+  // Required by HTML5 Drag & Drop API to allow this element to accept drops
   const handleDragOver = (e) => {
     e.preventDefault(); 
   };
@@ -32,6 +33,8 @@ function FavoritesList({ favorites, onRemove, onClear }) {
                     key={property.id} 
                     className="favorite-item"
                     draggable="true" 
+                    // Set data to identify this property and flag it as coming FROM the favorites list
+                    // This allows the main app to distinguish between adding vs. removing
                     onDragStart={(e) => {
                         e.dataTransfer.setData("propertyId", property.id);
                         e.dataTransfer.setData("fromFavorites", "true");

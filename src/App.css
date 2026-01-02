@@ -1,5 +1,4 @@
-/* App.css */
-/* 1. Global Reset */
+/* Global Reset and Base Styles */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -24,7 +23,7 @@ body {
   flex-direction: column;
 }
 
-/* 2. Navbar */
+/* Navbar Styling */
 .navbar {
   padding: 15px 20px;
   background-color: #0f172a;
@@ -61,7 +60,7 @@ body {
   border-color: white;
 }
 
-/* 3. Hero Section */
+/* Hero Section with background image */
 .hero-section {
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/home/home.jpg');
   background-size: cover;
@@ -75,7 +74,7 @@ body {
   padding: 20px;
 }
 
-/* 4. Page Layout */
+/* Page Layout Configuration */
 .page-content {
   padding: 20px;
   max-width: 1400px;
@@ -84,6 +83,7 @@ body {
   flex: 1; 
 }
 
+/* Two-column layout: Property Grid (Left) + Sidebar (Right) */
 .main-layout {
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -91,7 +91,7 @@ body {
   align-items: start;
 }
 
-/* 5. Property Grid */
+/* Property Grid Styling */
 .properties-header {
   display: flex; 
   justify-content: space-between; 
@@ -103,12 +103,13 @@ body {
 
 .properties-grid {
   display: grid;
+  /* Responsive grid that autofills columns based on available width */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
   padding-bottom: 20px;
 }
 
-/* Sticky Sidebar */
+/* Sticky Sidebar for Favorites */
 .sticky-sidebar {
   position: sticky;
   top: 20px;
@@ -116,17 +117,19 @@ body {
   z-index: 90;
 }
 
-/* Mobile Responsive */
+/* Responsive Design for Tablets and Mobile */
 @media (max-width: 900px) {
   .hero-section {
     min-height: auto;
     padding: 30px 15px;
   }
   
+  /* Switch to single column layout on smaller screens */
   .main-layout {
     grid-template-columns: 1fr;
   }
   
+  /* Sidebar moves to the top on mobile/tablet */
   .sticky-sidebar {
     position: static; 
     order: -1; 

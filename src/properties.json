@@ -6,18 +6,18 @@
     "bedrooms": 3,
     "dateAdded": "2025-10-12",
     "postcode": "BR5",
-    "location": "Petts Wood Road, Petts Wood, Orpington BR5",
-    "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station.",
-    "longDescription": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom.",
+    "location": "Petts Wood Road, Orpington, BR5",
+    "description": "Charming 3-bedroom semi-detached family home near Petts Wood station.",
+    "longDescription": "An attractive three-bedroom semi-detached family home situated just 0.5 miles from Petts Wood station. The property features a spacious 18ft kitchen/breakfast room, two bright reception rooms, and a sun-filled conservatory. Ideally located for fast trains to London and within the catchment area for top-rated local schools.",
     "images": [
-    "/images/prop1/main.jpg",
-    "/images/prop1/kitchen.png",
-    "/images/prop1/living.png",
-    "/images/prop1/bed1.png",
-    "/images/prop1/bed2.png",
-    "/images/prop1/garden.png"
+      "/images/prop1/main.jpg",
+      "/images/prop1/kitchen.png",
+      "/images/prop1/living.png",
+      "/images/prop1/bed1.png",
+      "/images/prop1/bed2.png",
+      "/images/prop1/garden.png"
     ],
-    "floorPlan": "/images/prop1/floorplan.png",  
+    "floorPlan": "/images/prop1/floorplan.png",
     "mapImage": "/images/prop1/map.png"
   },
   {
@@ -27,18 +27,18 @@
     "bedrooms": 2,
     "dateAdded": "2025-09-14",
     "postcode": "BR6",
-    "location": "Crofton Road Orpington BR6",
-    "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat.",
-    "longDescription": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden.",
+    "location": "Crofton Road, Orpington, BR6",
+    "description": "Immaculate 2-bedroom garden flat with bi-folding doors.",
+    "longDescription": "Presented in excellent decorative order, this two-bedroom, two-bathroom garden flat offers the perfect blend of modern living and outdoor space. The open-plan living area features solid wood floors and a sleek fitted kitchen with integrated appliances. Bi-folding doors open onto a secluded private courtyard, perfect for summer dining.",
     "images": [
-    "/images/prop2/main.png",
-    "/images/prop2/kitchen.png",
-    "/images/prop2/living.png",
-    "/images/prop2/bedroom.png",
-    "/images/prop2/bathroom.png",
-    "/images/prop2/garden.png"
+      "/images/prop2/main.png",
+      "/images/prop2/kitchen.png",
+      "/images/prop2/living.png",
+      "/images/prop2/bedroom.png",
+      "/images/prop2/bathroom.png",
+      "/images/prop2/garden.png"
     ],
-    "floorPlan": "/images/prop2/floorplan.png",  
+    "floorPlan": "/images/prop2/floorplan.png",
     "mapImage": "/images/prop2/map.png"
   },
   {
@@ -48,18 +48,18 @@
     "bedrooms": 4,
     "dateAdded": "2025-11-01",
     "postcode": "SE15",
-    "location": "Peckham, London",
-    "description": "Charming 4-bed terraced house in a quiet cul-de-sac.",
-    "longDescription": "Features a cozy living room, spacious kitchen-diner, and a private rear garden. Recently redecorated throughout. Perfect for a growing family needing quick access to the city center.",
+    "location": "Bellenden Road, Peckham, London, SE15",
+    "description": "Stunning 4-bed Victorian terrace in the heart of Peckham village.",
+    "longDescription": "A characterful Victorian terraced house located on one of Peckham's most desirable streets. This 4-bedroom home boasts original fireplaces, a recently renovated kitchen-diner, and a generous rear garden. Just moments from the independent shops and cafes of Bellenden Road and excellent transport links.",
     "images": [
-    "/images/prop3/main.png",
-    "/images/prop3/kitchen.jpg",
-    "/images/prop3/living.jpg",
-    "/images/prop3/bed1.jpg",
-    "/images/prop3/bed2.jpg",
-    "/images/prop3/garden.jpg"
+      "/images/prop3/main.png",
+      "/images/prop3/kitchen.jpg",
+      "/images/prop3/living.jpg",
+      "/images/prop3/bed1.jpg",
+      "/images/prop3/bed2.jpg",
+      "/images/prop3/garden.jpg"
     ],
-    "floorPlan": "/images/prop3/floorplan.jpg",  
+    "floorPlan": "/images/prop3/floorplan.jpg",
     "mapImage": "/images/prop3/map.jpg"
   },
   {
@@ -69,18 +69,18 @@
     "bedrooms": 3,
     "dateAdded": "2025-08-20",
     "postcode": "E1",
-    "location": "Shoreditch, London",
-    "description": "Stylish warehouse conversion with exposed brickwork.",
-    "longDescription": "This trendy apartment offers high ceilings, large industrial windows, and a rooftop terrace access. Located in the heart of the creative district with easy access to nightlife and tech hubs.",
+    "location": "Redchurch Street, Shoreditch, London, E1",
+    "description": "Authentic warehouse loft conversion with exposed brickwork.",
+    "longDescription": "Live in the heart of London's creative district in this stunning warehouse conversion. The apartment features soaring high ceilings, authentic exposed brick walls, and massive industrial-style windows. Residents enjoy exclusive access to a rooftop terrace with panoramic views of the City skyline.",
     "images": [
-    "/images/prop4/main.jpg",
-    "/images/prop4/kitchen.jpg",
-    "/images/prop4/living.jpg",
-    "/images/prop4/bed1.jpg",
-    "/images/prop4/bath.jpg",
-    "/images/prop4/roof.jpg"
+      "/images/prop4/main.jpg",
+      "/images/prop4/kitchen.jpg",
+      "/images/prop4/living.jpg",
+      "/images/prop4/bed1.jpg",
+      "/images/prop4/bath.jpg",
+      "/images/prop4/roof.jpg"
     ],
-    "floorPlan": "/images/prop4/floorplan.jpg",  
+    "floorPlan": "/images/prop4/floorplan.jpg",
     "mapImage": "/images/prop4/map.jpg"
   },
   {
@@ -90,30 +90,30 @@
     "bedrooms": 5,
     "dateAdded": "2025-12-01",
     "postcode": "SW19",
-    "location": "Wimbledon, London",
-    "description": "Luxury 5-bedroom detached home near the park.",
-    "longDescription": "Includes a double garage, en-suite to master bedroom, and a large landscaped garden. Ideal for prestige living. The property has recently undergone a full refurbishment.",
+    "location": "Parkside, Wimbledon, London, SW19",
+    "description": "Prestigious 5-bedroom detached residence adjacent to Wimbledon Common.",
+    "longDescription": "A truly exceptional detached family home offering over 2,500 sq ft of luxury living space. Highlights include a grand master suite with walk-in wardrobe, a state-of-the-art kitchen, and a double garage. The beautifully landscaped rear garden offers total privacy, all within walking distance of Wimbledon Village.",
     "images": [
-    "/images/prop5/main.jpg",
-    "/images/prop5/kitchen.jpg",
-    "/images/prop5/living.jpg",
-    "/images/prop5/bed1.jpg",
-    "/images/prop5/pool.jpg",
-    "/images/prop5/garden.jpg"
+      "/images/prop5/main.jpg",
+      "/images/prop5/kitchen.jpg",
+      "/images/prop5/living.jpg",
+      "/images/prop5/bed1.jpg",
+      "/images/prop5/pool.jpg",
+      "/images/prop5/garden.jpg"
     ],
-    "floorPlan": "/images/prop5/floorplan.jpg",  
+    "floorPlan": "/images/prop5/floorplan.jpg",
     "mapImage": "/images/prop5/map.jpg"
   },
- {
+  {
     "id": "prop6",
     "type": "Flat",
     "price": 325000,
     "bedrooms": 2,
     "dateAdded": "2025-06-15",
     "postcode": "CR0",
-    "location": "East Croydon, London",
-    "description": "Modern 2-bedroom apartment with balcony near station.",
-    "longDescription": "A spacious and bright flat featuring an open-plan living area, two double bedrooms, and a private balcony. Ideally located for commuters with fast links to Central London and Gatwick.",
+    "location": "George Street, East Croydon, London, CR0",
+    "description": "Contemporary 2-bed apartment with skyline views, steps from the station.",
+    "longDescription": "Perfect for commuters, this ultra-modern apartment is located less than a 2-minute walk from East Croydon station (15 mins to London Victoria). Features include a high-spec open-plan kitchen, concierge service, and a private balcony with stunning sunset views over the city.",
     "images": [
       "/images/prop6/main.jpg",
       "/images/prop6/living.jpg",
@@ -132,9 +132,9 @@
     "bedrooms": 3,
     "dateAdded": "2025-10-30",
     "postcode": "NW1",
-    "location": "Camden, London",
-    "description": "Renovated detached bungalow with easy access to markets.",
-    "longDescription": "A rare find in London. A mix of old charm and new amenities. Features a smart-home heating system and wooden flooring. Walking distance to the famous Camden market and canal.",
+    "location": "Albert Street, Camden Town, London, NW1",
+    "description": "Rare architect-designed detached bungalow in a quiet conservation area.",
+    "longDescription": "A unique opportunity to acquire a detached bungalow in the heart of Camden. Tucked away on a quiet residential street, this renovated gem features smart-home heating, engineered oak flooring, and a private patio. Just a short stroll from the vibrant Camden Lock Market and Regent's Canal.",
     "images": [
       "/images/prop7/main.jpg",
       "/images/prop7/living.jpg",
@@ -143,7 +143,7 @@
       "/images/prop7/bed2.jpg",
       "/images/prop7/garden.jpg"
     ],
-    "floorPlan": "/images/prop7/floorplan.jpg",  
+    "floorPlan": "/images/prop7/floorplan.jpg",
     "mapImage": "/images/prop7/map.jpg"
   }
 ]

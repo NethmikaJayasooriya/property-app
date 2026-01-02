@@ -15,15 +15,22 @@ function MainApp() {
   
   const navigate = useNavigate();
 
+  // Filter properties based on search criteria passed from SearchForm
   const handleSearch = (criteria) => {
     const filtered = propertiesData.filter(property => {
+      // Validate type match if specific type selected
       if (criteria.type !== 'any' && property.type !== criteria.type) return false;
+      
+      // Validate numerical ranges (Price & Bedrooms)
       if (criteria.minPrice && property.price < Number(criteria.minPrice)) return false;
       if (criteria.maxPrice && property.price > Number(criteria.maxPrice)) return false;
       if (criteria.minBedrooms && property.bedrooms < Number(criteria.minBedrooms)) return false;
       if (criteria.maxBedrooms && property.bedrooms > Number(criteria.maxBedrooms)) return false;
+      
+      // Validate postcode 
       if (criteria.postcode && !property.postcode.toLowerCase().includes(criteria.postcode.toLowerCase())) return false;
       
+      // Validate date added 
       if (criteria.dateAdded) {
         const propDate = new Date(property.dateAdded);
         const searchDate = new Date(criteria.dateAdded);
@@ -31,11 +38,13 @@ function MainApp() {
       }
       return true;
     });
+
     setProperties(filtered);
     navigate('/'); 
   };
 
   const addToFavorites = (property) => {
+    // Prevent duplicate entries in favorites
     if (!favorites.find(fav => fav.id === property.id)) {
       setFavorites([...favorites, property]);
     }
@@ -46,43 +55,43 @@ function MainApp() {
   };
 
   const handleShowAll = () => {
+    // Reset to full dataset
     setProperties(propertiesData); 
     navigate('/');                 
   };
 
-  //HANDLE DROPS ON THE SIDEBAR (Adding)
+  // Drag-and-Drop Handler: Adding to Favorites
   const handleSidebarDrop = (e) => {
     e.preventDefault();
-    e.stopPropagation(); //Stops the "Global Remove" from triggering
+    e.stopPropagation(); // Prevent event bubbling to avoid triggering global remove
     
     const propertyId = e.dataTransfer.getData("propertyId");
     const fromFavorites = e.dataTransfer.getData("fromFavorites");
 
-    // If dragging FROM favorites TO favorites, do nothing (ignore)
+    // Ignore drops that originated from the favorites list itself 
     if (fromFavorites) return;
 
-    //find the property and add it
     const propertyToAdd = propertiesData.find(p => p.id === propertyId);
     if (propertyToAdd) {
       addToFavorites(propertyToAdd);
     }
   };
 
-  //HANDLE DROPS ANYWHERE ELSE (Removing)
+  // Drag-and-Drop Handler: Removing from Favorites
   const handleGlobalDrop = (e) => {
     e.preventDefault();
     
     const propertyId = e.dataTransfer.getData("propertyId");
     const fromFavorites = e.dataTransfer.getData("fromFavorites");
 
-    // Only remove if it CAME FROM the favorites list
+    // Remove item only if it was dragged out of the favorites list
     if (fromFavorites && propertyId) {
         removeFavorite(propertyId);
     }
   };
 
   return (
-    // Attach Global Drop Handler to the main container
+    // Main container acts as a drop zone for removing favorites
     <div 
         className="app-container" 
         onDrop={handleGlobalDrop} 
@@ -108,7 +117,7 @@ function MainApp() {
             <div className="page-content">
               <div className="main-layout">
                 
-                {/* Left: Property Grid */}
+                {/* Main Property Grid */}
                 <div>
                    <div className="properties-header">
                       <h2 style={{ margin: 0, color: '#0f172a' }}>Properties For Sale</h2>
@@ -133,10 +142,10 @@ function MainApp() {
                   </div>
                 </div>
 
-                {/* Right: Sticky Favorites */}
+                {/* Sticky Sidebar for Favorites Management */}
                 <div 
                     className="sticky-sidebar"
-                    onDrop={handleSidebarDrop} // Use the new Sidebar handler
+                    onDrop={handleSidebarDrop} 
                     onDragOver={(e) => e.preventDefault()} 
                 >
                     <FavoritesList 

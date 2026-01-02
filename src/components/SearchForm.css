@@ -1,26 +1,31 @@
 /* SearchForm.css */
+
 .search-form {
   background-color: rgba(255, 255, 255, 0.98);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px; /* Increased slightly to fit everything in one line */
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
+/* Flex container for input fields */
 .search-form__inputs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   gap: 15px;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: center; 
 }
 
+/* --- Desktop Layout Defaults --- */
 .search-form__group {
   display: flex;
   flex-direction: column;
+  flex-grow: 0; 
 }
 
 .search-form__label {
@@ -35,24 +40,17 @@
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  width: 150px; /* Slightly reduced to ensure fit */
 }
 
-.search-form__select {
-  min-width: 120px;
-}
-
-.search-form__input--short {
-  width: 100px;
-}
-
-.search-form__input--tiny {
-  width: 80px;
-}
+.search-form__input--short { width: 130px; }
+.search-form__input--tiny { width: 70px; }
 
 .search-form__range-group {
   display: flex;
   gap: 5px;
   align-items: flex-end;
+  flex-grow: 0; 
 }
 
 .search-form__submit {
@@ -63,30 +61,53 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: auto;
   height: 40px;
   transition: background-color 0.2s;
+  min-width: 100px;
 }
 
 .search-form__submit:hover {
   background-color: #218838;
 }
 
-.react-datepicker-popper {
-  z-index: 100 !important;
-}
+/* Overrides for React Datepicker */
+.react-datepicker-popper { z-index: 100 !important; }
+.date-picker-wrapper { width: 100%; }
+.date-picker-wrapper input { width: 100%; }
 
-@media (max-width: 900px) {
+
+/* --- LARGE SCREENS (Laptop/Desktop) - FORCE ONE LINE --- */
+@media (min-width: 1100px) {
   .search-form__inputs {
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: nowrap; /* <--- This forces button to stay on the right */
+    justify-content: space-between;
   }
   
+  .search-form__submit {
+    margin-left: 10px; /* Add slight space before button */
+  }
+}
+
+/* --- Tablet & Mobile Layout (Max Width 1024px) --- */
+@media (max-width: 1024px) {
+  .search-form__inputs {
+    justify-content: normal; 
+  }
+
+  .search-form__group,
+  .search-form__range-group {
+    flex-grow: 1; 
+    min-width: 140px; 
+  }
+
   .search-form__select,
   .search-form__input,
   .search-form__input--short,
-  .search-form__input--tiny,
-  .search-form__submit {
+  .search-form__input--tiny {
     width: 100%;
+  }
+
+  .search-form__submit {
+    flex-grow: 1; 
   }
 }

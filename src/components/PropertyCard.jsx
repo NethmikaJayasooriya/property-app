@@ -1,8 +1,10 @@
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import './PropertyCard.css'; // Import CSS
+import './PropertyCard.css';
 
 function PropertyCard({ property, onFavorite }) {
+  
+  // Store the property ID in the drag event data so the Drop Zone knows which item was moved
   const handleDragStart = (e) => {
     e.dataTransfer.setData("propertyId", property.id);
   };
@@ -10,7 +12,7 @@ function PropertyCard({ property, onFavorite }) {
   return (
      <div 
       className="property-card"
-      draggable="true" 
+      draggable="true" // Enables this element to be dragged by the user
       onDragStart={handleDragStart}
       >
 
