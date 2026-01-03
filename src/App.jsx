@@ -131,6 +131,7 @@ function MainApp() {
                                 key={property.id} 
                                 property={property} 
                                 onFavorite={addToFavorites} 
+                                favorites={favorites}
                             />
                         ))
                     ) : (

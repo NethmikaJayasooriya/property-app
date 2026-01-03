@@ -100,3 +100,13 @@
 .property-card__view-btn:hover {
   background-color: #1d4ed8;
 }
+
+.property-card__fav-btn.fav-added {
+  background-color: #e6f9ed;
+  color: #16a34a;
+  cursor: default;
+}
+
+.property-card__fav-btn:disabled {
+  opacity: 1;
+}
