@@ -1,98 +1,99 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import App from './App';
 
-// --- MOCKS ---
-
-// 1. Mock the JSON Data
+/*
+  Mock property data so tests run with predictable values
+*/
 jest.mock('./properties.json', () => [
   {
-    id: "prop1",
-    type: "House",
-    price: 250000,
+    id: 'p1',
+    type: 'House',
+    price: 300000,
     bedrooms: 3,
-    dateAdded: "2025-10-12",
-    postcode: "BR5",
-    location: "Test Location",
-    description: "Test Description",
-    images: ["test.jpg"]
+    dateAdded: '2025-10-01',
+    postcode: 'BR1',
+    location: 'Test Location 1',
+    description: 'Test House',
+    images: ['img1.jpg']
   },
   {
-    id: "prop2",
-    type: "Flat",
+    id: 'p2',
+    type: 'Flat',
     price: 150000,
     bedrooms: 2,
-    dateAdded: "2025-09-14",
-    postcode: "BR6",
-    location: "Test Location 2",
-    description: "Test Desc 2",
-    images: ["test2.jpg"]
+    dateAdded: '2025-09-01',
+    postcode: 'NW1',
+    location: 'Test Location 2',
+    description: 'Test Flat',
+    images: ['img2.jpg']
   }
 ]);
 
-// 2. Mock ScrollToTop
-jest.mock('./components/ScrollToTop', () => {
-  return () => null;
-});
+/*
+  Disable scroll behaviour during tests
+*/
+jest.mock('./components/ScrollToTop', () => () => null);
 
-// 3. Mock DatePicker CSS
-jest.mock("react-datepicker/dist/react-datepicker.css", () => ({}));
+describe('Estate Agent Application', () => {
 
-describe('Estate Agent App Tests', () => {
-
-  // TEST 1: Smoke Test
-  test('renders the main application title', () => {
+  /* TEST 1: App renders successfully */
+  test('renders application title', () => {
     render(<App />);
-    const titleElements = screen.getAllByText(/Estate Agent App/i);
-    // Check that at least one of them exists
-    expect(titleElements[0]).toBeInTheDocument();
+    const titles = screen.getAllByText(/Estate Agent App/i);
+    expect(titles.length).toBeGreaterThan(0);
   });
 
-  // TEST 2: UI Check
-  test('renders key search form inputs', () => {
+  /* TEST 2: Properties load from JSON */
+  test('displays property cards from data source', () => {
     render(<App />);
-    expect(screen.getByRole('combobox')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
-  });
-
-  // TEST 3: Data Loading
-  test('displays properties from the mock data', () => {
-    render(<App />);
-    expect(screen.getByText(/£250,000/i)).toBeInTheDocument();
-    expect(screen.getByText(/£150,000/i)).toBeInTheDocument();
-  });
-
-  // TEST 4: Search Logic
-  test('filters properties when search criteria is applied', async () => {
-    render(<App />);
-    
-    // 1. Verify BOTH cards are visible initially
     expect(screen.getByText(/House - 3 Bed/i)).toBeInTheDocument();
     expect(screen.getByText(/Flat - 2 Bed/i)).toBeInTheDocument();
+  });
 
-    // 2. Change the dropdown to "Flat"
-    const typeSelect = screen.getByRole('combobox');
-    fireEvent.change(typeSelect, { target: { value: 'Flat' } });
+  /* TEST 3: Search filters results correctly */
+  test('filters properties when searching by type', async () => {
+    render(<App />);
 
-    // 3. Click the Search button
-    const searchButton = screen.getByRole('button', { name: /search/i });
-    fireEvent.click(searchButton);
-
-    // 4. Wait for the "House" to disappear
-    await waitFor(() => {
-        expect(screen.queryByText(/House - 3 Bed/i)).not.toBeInTheDocument();
+    fireEvent.change(screen.getByRole('combobox'), {
+      target: { value: 'Flat' }
     });
 
-    // 5. The "Flat" should still be there
+    fireEvent.click(screen.getByRole('button', { name: /search/i }));
+
+    await waitFor(() => {
+      expect(screen.queryByText(/House - 3 Bed/i)).not.toBeInTheDocument();
+    });
+
     expect(screen.getByText(/Flat - 2 Bed/i)).toBeInTheDocument();
   });
 
-  // TEST 5: Favorites Feature
-  test('renders the favorites drop zone area', () => {
+  /* TEST 4: Property can be added to favourites */
+  test('adds a property to favourites list', async () => {
     render(<App />);
 
-    //check specifically for the unique text inside the sidebar:
-    expect(screen.getByText(/Drag properties here/i)).toBeInTheDocument();
-  });
-});
+    fireEvent.click(screen.getAllByTitle(/add to favorites/i)[0]);
 
-// Delayed import
-const App = require('./App').default;
+    const favouritesHeading = screen.getByRole('heading', { name: 'Favorites' });
+    expect(favouritesHeading).toBeInTheDocument();
+
+    const favouritesSection = favouritesHeading.closest('.favorites-container');
+    expect(within(favouritesSection).getByText(/£300,000/i)).toBeInTheDocument();
+  });
+
+  /* TEST 5: Duplicate favourites are prevented */
+  test('prevents duplicate favourites', async () => {
+    render(<App />);
+
+    const favButton = screen.getAllByTitle(/add to favorites/i)[0];
+    fireEvent.click(favButton);
+    fireEvent.click(favButton);
+
+    const favouritesSection = screen
+      .getByRole('heading', { name: 'Favorites' })
+      .closest('.favorites-container');
+
+    const savedItems = within(favouritesSection).getAllByText(/£300,000/i);
+    expect(savedItems.length).toBe(1);
+  });
+
+});
