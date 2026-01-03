@@ -212,9 +212,9 @@
 
 /* Style for when button is disabled/saved */
 .btn-saved {
-  background-color: white !important; /* Keep white background as requested */
-  color: #16a34a !important; /* Green text to show success */
-  border-color: #16a34a !important; /* Green border */
+  background-color: white !important;
+  color: #16a34a !important;
+  border-color: #16a34a !important;
   cursor: default;
   opacity: 1 !important; /* Force full visibility (removes "invisible" disabled look) */
 }

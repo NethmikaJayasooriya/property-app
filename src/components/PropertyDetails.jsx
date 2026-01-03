@@ -6,13 +6,13 @@ import './PropertyDetails.css';
 function PropertyDetails({ onFavorite, favorites = [] }) {
   // Retrieve the property ID from the URL parameters
   const { id } = useParams();
-  
+
   // Find the specific property data from the imported JSON
   const property = propertiesData.find(p => p.id === id);
 
   // Local state to manage the interactive gallery 
   const [mainImage, setMainImage] = useState(property?.images?.[0] || null);
-  
+
   // Local state to control which tab is currently visible
   const [activeTab, setActiveTab] = useState('description');
 

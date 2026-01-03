@@ -11,8 +11,8 @@ import propertiesData from './properties.json';
 
 function MainApp() {
   const [properties, setProperties] = useState(propertiesData);
-  const [favorites, setFavorites] = useState([]); 
-  
+  const [favorites, setFavorites] = useState([]);
+
   const navigate = useNavigate();
 
   // Filter properties based on search criteria passed from SearchForm
@@ -20,16 +20,16 @@ function MainApp() {
     const filtered = propertiesData.filter(property => {
       // Validate type match if specific type selected
       if (criteria.type !== 'any' && property.type !== criteria.type) return false;
-      
+
       // Validate numerical ranges (Price & Bedrooms)
       if (criteria.minPrice && property.price < Number(criteria.minPrice)) return false;
       if (criteria.maxPrice && property.price > Number(criteria.maxPrice)) return false;
       if (criteria.minBedrooms && property.bedrooms < Number(criteria.minBedrooms)) return false;
       if (criteria.maxBedrooms && property.bedrooms > Number(criteria.maxBedrooms)) return false;
-      
+
       // Validate postcode 
       if (criteria.postcode && !property.postcode.toLowerCase().includes(criteria.postcode.toLowerCase())) return false;
-      
+
       // Validate date added 
       if (criteria.dateAdded) {
         const propDate = new Date(property.dateAdded);
@@ -40,7 +40,7 @@ function MainApp() {
     });
 
     setProperties(filtered);
-    navigate('/'); 
+    navigate('/');
   };
 
   const addToFavorites = (property) => {
@@ -56,15 +56,15 @@ function MainApp() {
 
   const handleShowAll = () => {
     // Reset to full dataset
-    setProperties(propertiesData); 
-    navigate('/');                 
+    setProperties(propertiesData);
+    navigate('/');
   };
 
   // Drag-and-Drop Handler: Adding to Favorites
   const handleSidebarDrop = (e) => {
     e.preventDefault();
     e.stopPropagation(); // Prevent event bubbling to avoid triggering global remove
-    
+
     const propertyId = e.dataTransfer.getData("propertyId");
     const fromFavorites = e.dataTransfer.getData("fromFavorites");
 
@@ -80,29 +80,29 @@ function MainApp() {
   // Drag-and-Drop Handler: Removing from Favorites
   const handleGlobalDrop = (e) => {
     e.preventDefault();
-    
+
     const propertyId = e.dataTransfer.getData("propertyId");
     const fromFavorites = e.dataTransfer.getData("fromFavorites");
 
     // Remove item only if it was dragged out of the favorites list
     if (fromFavorites && propertyId) {
-        removeFavorite(propertyId);
+      removeFavorite(propertyId);
     }
   };
 
   return (
     // Main container acts as a drop zone for removing favorites
-    <div 
-        className="app-container" 
-        onDrop={handleGlobalDrop} 
-        onDragOver={(e) => e.preventDefault()}
+    <div
+      className="app-container"
+      onDrop={handleGlobalDrop}
+      onDragOver={(e) => e.preventDefault()}
     >
       <ScrollToTop />
       <nav className="navbar">
         <div className="navbar__content">
           <h1 className="navbar__title">Estate Agent App</h1>
           <button onClick={handleShowAll} className="navbar__btn">
-              Show All
+            Show All
           </button>
         </div>
       </nav>
@@ -116,58 +116,58 @@ function MainApp() {
 
             <div className="page-content">
               <div className="main-layout">
-                
+
                 {/* Main Property Grid */}
                 <div>
-                   <div className="properties-header">
-                      <h2 style={{ margin: 0, color: '#0f172a' }}>Properties For Sale</h2>
-                      <span style={{ color: '#64748b' }}>Found {properties.length}</span>
-                   </div>
-                   
-                   <div className="properties-grid">
+                  <div className="properties-header">
+                    <h2 style={{ margin: 0, color: '#0f172a' }}>Properties For Sale</h2>
+                    <span style={{ color: '#64748b' }}>Found {properties.length}</span>
+                  </div>
+
+                  <div className="properties-grid">
                     {properties.length > 0 ? (
-                        properties.map(property => (
-                            <PropertyCard 
-                                key={property.id} 
-                                property={property} 
-                                onFavorite={addToFavorites} 
-                                favorites={favorites}
-                            />
-                        ))
+                      properties.map(property => (
+                        <PropertyCard
+                          key={property.id}
+                          property={property}
+                          onFavorite={addToFavorites}
+                          favorites={favorites}
+                        />
+                      ))
                     ) : (
-                        <div style={{ textAlign: 'center', padding: '40px', gridColumn: '1/-1', backgroundColor: 'white', borderRadius: '8px' }}>
-                            <h3>No properties match your search</h3>
-                            <p style={{color: '#666'}}>Try changing your filters or click "Show All".</p>
-                        </div>
+                      <div style={{ textAlign: 'center', padding: '40px', gridColumn: '1/-1', backgroundColor: 'white', borderRadius: '8px' }}>
+                        <h3>No properties match your search</h3>
+                        <p style={{ color: '#666' }}>Try changing your filters or click "Show All".</p>
+                      </div>
                     )}
                   </div>
                 </div>
 
                 {/* Sticky Sidebar for Favorites Management */}
-                <div 
-                    className="sticky-sidebar"
-                    onDrop={handleSidebarDrop} 
-                    onDragOver={(e) => e.preventDefault()} 
+                <div
+                  className="sticky-sidebar"
+                  onDrop={handleSidebarDrop}
+                  onDragOver={(e) => e.preventDefault()}
                 >
-                    <FavoritesList 
-                        favorites={favorites} 
-                        onRemove={removeFavorite} 
-                        onClear={() => setFavorites([])} 
-                    />
+                  <FavoritesList
+                    favorites={favorites}
+                    onRemove={removeFavorite}
+                    onClear={() => setFavorites([])}
+                  />
                 </div>
               </div>
             </div>
           </>
         } />
 
-        <Route 
-          path="/property/:id" 
+        <Route
+          path="/property/:id"
           element={
-            <PropertyDetails 
-              onFavorite={addToFavorites} 
-              favorites={favorites} 
+            <PropertyDetails
+              onFavorite={addToFavorites}
+              favorites={favorites}
             />
-          } 
+          }
         />
       </Routes>
 

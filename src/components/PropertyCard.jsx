@@ -4,8 +4,10 @@ import './PropertyCard.css';
 
 function PropertyCard({ property, onFavorite, favorites }) {
 
+  // Check if this property already exists in the favourites list
   const isFavorited = favorites.some(fav => fav.id === property.id);
 
+  // Store property id when dragging the card
   const handleDragStart = (e) => {
     e.dataTransfer.setData("propertyId", property.id);
   };
@@ -17,6 +19,7 @@ function PropertyCard({ property, onFavorite, favorites }) {
       onDragStart={handleDragStart}
     >
 
+      {/* Favourite button with visual feedback */}
       <button
         onClick={() => onFavorite(property)}
         disabled={isFavorited}
@@ -36,6 +39,7 @@ function PropertyCard({ property, onFavorite, favorites }) {
         )}
       </button>
 
+      {/* Property main image */}
       <img
         src={property.images[0]}
         alt={property.type}
@@ -61,7 +65,11 @@ function PropertyCard({ property, onFavorite, favorites }) {
           </p>
         </div>
 
-        <Link to={`/property/${property.id}`} style={{ width: '100%', textDecoration: 'none' }}>
+        {/* Navigate to property details page */}
+        <Link
+          to={`/property/${property.id}`}
+          style={{ width: '100%', textDecoration: 'none' }}
+        >
           <button className="property-card__view-btn">
             View Details
           </button>

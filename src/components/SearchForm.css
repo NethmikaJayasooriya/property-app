@@ -6,7 +6,7 @@
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 1200px; /* Increased slightly to fit everything in one line */
+  max-width: 1200px; 
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -40,7 +40,7 @@
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 150px; /* Slightly reduced to ensure fit */
+  width: 150px; 
 }
 
 .search-form__input--short { width: 130px; }
@@ -76,10 +76,10 @@
 .date-picker-wrapper input { width: 100%; }
 
 
-/* --- LARGE SCREENS (Laptop/Desktop) - FORCE ONE LINE --- */
+/* --- LARGE SCREENS (Laptop/Desktop)*/
 @media (min-width: 1100px) {
   .search-form__inputs {
-    flex-wrap: nowrap; /* <--- This forces button to stay on the right */
+    flex-wrap: nowrap; 
     justify-content: space-between;
   }
   
